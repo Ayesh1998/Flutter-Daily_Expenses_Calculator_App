@@ -31,6 +31,9 @@ class HomePage extends StatelessWidget {
       title: 'Buy a laptop',
     ),
   ];
+
+  String inputTitle;
+  String inputAmount;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +45,6 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
@@ -54,6 +56,37 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(),
                 ),
                 elevation: 5,
+              ),
+            ),
+            Card(
+              elevation: 4,
+              child: Container(
+                padding: EdgeInsets.all(8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      onChanged: (value) {
+                        inputTitle = value;
+                      },
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      onChanged: (value) {
+                        inputAmount = value;
+                      },
+                      decoration: InputDecoration(labelText: 'Amount'),
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        print(inputAmount);
+                        print(inputTitle);
+                      },
+                      color: Colors.teal,
+                      child: Text('Add Expense'),
+                    )
+                  ],
+                ),
               ),
             ),
             Column(
