@@ -34,6 +34,10 @@ class HomePage extends StatelessWidget {
 
   String inputTitle;
   String inputAmount;
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,24 +70,29 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     TextField(
-                      onChanged: (value) {
-                        inputTitle = value;
-                      },
+                      // onChanged: (value) {
+                      //   inputTitle = value;
+                      // },
+                      controller: titleController,
                       decoration: InputDecoration(labelText: 'Title'),
                     ),
                     TextField(
-                      onChanged: (value) {
-                        inputAmount = value;
-                      },
+                      // onChanged: (value) {
+                      //   inputAmount = value;
+                      // },
+                      controller: amountController,
                       decoration: InputDecoration(labelText: 'Amount'),
                     ),
                     FlatButton(
                       onPressed: () {
-                        print(inputAmount);
-                        print(inputTitle);
+                        print(amountController.text);
+                        print(titleController.text);
                       },
                       color: Colors.teal,
-                      child: Text('Add Expense'),
+                      child: Text(
+                        'Add Expense',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     )
                   ],
                 ),
