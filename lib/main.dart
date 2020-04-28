@@ -42,18 +42,18 @@ class _HomePageState extends State<HomePage> {
   String inputAmount;
 
   final List<Transaction> _transactions = [
-    Transaction(
-      amount: 200.00,
-      date: DateTime.now(),
-      id: 't1',
-      title: 'Buy a car',
-    ),
-    Transaction(
-      amount: 100.00,
-      date: DateTime.now(),
-      id: 't2',
-      title: 'Buy a laptop',
-    ),
+    // Transaction(
+    //   amount: 200.00,
+    //   date: DateTime.now(),
+    //   id: 't1',
+    //   title: 'Buy a car',
+    // ),
+    // Transaction(
+    //   amount: 100.00,
+    //   date: DateTime.now(),
+    //   id: 't2',
+    //   title: 'Buy a laptop',
+    // ),
   ];
 
   void _addNewTransaction(String title, double amount) {
