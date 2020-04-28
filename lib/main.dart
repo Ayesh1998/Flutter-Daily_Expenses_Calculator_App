@@ -29,6 +29,26 @@ class HomePage extends StatelessWidget {
         title: Text('Daily Expenses'),
         centerTitle: true,
         backgroundColor: Colors.teal[700],
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(
+                Icons.add,
+                color: Colors.white,
+                size: 28,
+              ),
+              onPressed: null)
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: FloatingActionButton(
+          backgroundColor: Colors.teal,
+          focusColor: Colors.teal[200],
+          hoverColor: Colors.teal[200],
+          onPressed: () => print('lol'),
+          child: Icon(Icons.add),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

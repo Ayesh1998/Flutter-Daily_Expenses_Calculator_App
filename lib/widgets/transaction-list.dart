@@ -10,7 +10,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 300,
       child: ListView(
           children: transactions.map((transaction) {
         return Card(
@@ -31,7 +31,7 @@ class TransactionList extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(3, 7, 3, 7),
                     padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                     child: Text(
-                      '\$${transaction.amount}',
+                      '\$${transaction.amount.toStringAsFixed(2)}',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
