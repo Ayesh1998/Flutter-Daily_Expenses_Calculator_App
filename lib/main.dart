@@ -1,6 +1,5 @@
 import 'package:daily_expenses/models/transaction.dart';
 import 'package:daily_expenses/widgets/new_transaction.dart';
-import 'package:daily_expenses/widgets/transaction_list.dart';
 import 'package:daily_expenses/widgets/user-transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -31,24 +30,26 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.teal[700],
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.teal[300],
-                child: Text(
-                  'Chart',
-                  style: TextStyle(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                child: Card(
+                  color: Colors.teal[300],
+                  child: Text(
+                    'Chart',
+                    style: TextStyle(),
+                  ),
+                  elevation: 5,
                 ),
-                elevation: 5,
               ),
-            ),
-            UserTrnasactions()
-          ],
+              UserTrnasactions()
+            ],
+          ),
         ),
       ),
     );
