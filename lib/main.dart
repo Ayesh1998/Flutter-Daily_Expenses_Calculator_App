@@ -1,4 +1,5 @@
 import 'package:daily_expenses/models/transaction.dart';
+import 'package:daily_expenses/widgets/chart.dart';
 import 'package:daily_expenses/widgets/new_transaction.dart';
 import 'package:daily_expenses/widgets/transaction-list.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +69,16 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  List<Transaction> get _recentTransactions {
+    return _transactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   void _startAddNewTRansaction(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -114,17 +125,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Container(
-                width: double.infinity,
-                child: Card(
-                  // color: Colors.teal[300],
-                  child: Text(
-                    'Chart',
-                    style: TextStyle(),
-                  ),
-                  elevation: 5,
-                ),
-              ),
+              Chart(_recentTransactions),
               TransactionList(_transactions)
             ],
           ),
