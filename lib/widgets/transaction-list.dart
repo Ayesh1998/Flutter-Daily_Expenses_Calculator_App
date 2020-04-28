@@ -67,26 +67,35 @@ class TransactionList extends StatelessWidget {
                       SizedBox(
                         width: 25,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            transaction.title,
-                            style: TextStyle(
-                              fontSize: 23,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              transaction.title,
+                              style: TextStyle(
+                                fontSize: 23,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          Text(
-                            DateFormat('yyyy-MM-dd').format(transaction.date),
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
+                            Text(
+                              DateFormat('yyyy-MM-dd').format(transaction.date),
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
+                      IconButton(
+                          icon: Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                            size: 29,
+                          ),
+                          onPressed: null)
                     ],
                   ),
                 ),
