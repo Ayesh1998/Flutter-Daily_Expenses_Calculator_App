@@ -12,6 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        accentColor: Colors.teal[500],
+      ),
       title: 'Dialy Expenses',
       home: HomePage(),
     );
@@ -73,7 +77,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Daily Expenses'),
         centerTitle: true,
-        backgroundColor: Colors.teal[700],
+        // backgroundColor: Colors.teal[700],
         actions: <Widget>[
           IconButton(
               icon: Icon(
@@ -88,9 +92,9 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
-          backgroundColor: Colors.teal,
-          focusColor: Colors.teal[200],
-          hoverColor: Colors.teal[200],
+          // backgroundColor: Colors.teal,
+          // focusColor: Colors.teal[200],
+          // hoverColor: Colors.teal[200],
           onPressed: () => _startAddNewTRansaction(context),
           child: Icon(Icons.add),
         ),
@@ -104,7 +108,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: double.infinity,
                 child: Card(
-                  color: Colors.teal[300],
+                  // color: Colors.teal[300],
                   child: Text(
                     'Chart',
                     style: TextStyle(),

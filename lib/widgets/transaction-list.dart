@@ -14,7 +14,7 @@ class TransactionList extends StatelessWidget {
       child: ListView(
           children: transactions.map((transaction) {
         return Card(
-          color: Colors.teal[500],
+          color: Theme.of(context).primaryColor,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Row(
