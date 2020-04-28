@@ -1,4 +1,5 @@
 import 'package:daily_expenses/models/transaction.dart';
+import 'package:daily_expenses/widgets/new_transaction.dart';
 import 'package:daily_expenses/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -20,9 +21,6 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   String inputTitle;
   String inputAmount;
-
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,42 +46,7 @@ class HomePage extends StatelessWidget {
                 elevation: 5,
               ),
             ),
-            Card(
-              elevation: 4,
-              child: Container(
-                padding: EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    TextField(
-                      // onChanged: (value) {
-                      //   inputTitle = value;
-                      // },
-                      controller: titleController,
-                      decoration: InputDecoration(labelText: 'Title'),
-                    ),
-                    TextField(
-                      // onChanged: (value) {
-                      //   inputAmount = value;
-                      // },
-                      controller: amountController,
-                      decoration: InputDecoration(labelText: 'Amount'),
-                    ),
-                    FlatButton(
-                      onPressed: () {
-                        print(amountController.text);
-                        print(titleController.text);
-                      },
-                      color: Colors.teal,
-                      child: Text(
-                        'Add Expense',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            NewTransaction(),
             TransactionList()
           ],
         ),
