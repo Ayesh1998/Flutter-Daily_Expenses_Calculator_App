@@ -46,8 +46,6 @@ class HomePage extends StatelessWidget {
                 elevation: 5,
               ),
             ),
-            NewTransaction(),
-            TransactionList()
           ],
         ),
       ),
