@@ -1,6 +1,6 @@
 import 'package:daily_expenses/models/transaction.dart';
 import 'package:daily_expenses/widgets/new_transaction.dart';
-import 'package:daily_expenses/widgets/user-transaction.dart';
+import 'package:daily_expenses/widgets/transaction-list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -18,9 +18,54 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   String inputTitle;
+
   String inputAmount;
+
+  final List<Transaction> _transactions = [
+    Transaction(
+      amount: 200.00,
+      date: DateTime.now(),
+      id: 't1',
+      title: 'Buy a car',
+    ),
+    Transaction(
+      amount: 100.00,
+      date: DateTime.now(),
+      id: 't2',
+      title: 'Buy a laptop',
+    ),
+  ];
+
+  void _addNewTransaction(String title, double amount) {
+    final newTransaction = Transaction(
+        amount: amount,
+        title: title,
+        date: DateTime.now(),
+        id: DateTime.now().toString());
+
+    setState(() {
+      _transactions.add(newTransaction);
+    });
+  }
+
+  void _startAddNewTRansaction(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (builderContext) {
+          return GestureDetector(
+            onTap: () {},
+            child: NewTransaction(_addNewTransaction),
+            behavior: HitTestBehavior.opaque,
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +81,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.white,
                 size: 28,
               ),
-              onPressed: null)
+              onPressed: () => _startAddNewTRansaction(context))
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -46,7 +91,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.teal,
           focusColor: Colors.teal[200],
           hoverColor: Colors.teal[200],
-          onPressed: () => print('lol'),
+          onPressed: () => _startAddNewTRansaction(context),
           child: Icon(Icons.add),
         ),
       ),
@@ -67,7 +112,7 @@ class HomePage extends StatelessWidget {
                   elevation: 5,
                 ),
               ),
-              UserTrnasactions()
+              TransactionList(_transactions)
             ],
           ),
         ),
