@@ -15,6 +15,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
         accentColor: Colors.teal[500],
+        fontFamily: 'Quicksand',
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                title: TextStyle(
+                  fontFamily: 'Lemonada',
+                  fontSize: 20,
+                ),
+              ),
+        ),
       ),
       title: 'Dialy Expenses',
       home: HomePage(),
