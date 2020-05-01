@@ -1,4 +1,4 @@
-package com.example.daily_expenses
+package com.ayesh.daily_expenses
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
